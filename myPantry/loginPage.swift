@@ -7,22 +7,52 @@ import FirebaseAuth
 struct LoginPage: View {
     
     func userAuth(phone: String, name: String) {
+//        Task{
+//            do {
+//                print("Running userAuth...")
+//                UserDefaults.standard.set(phone, forKey: "phone")
+//                FirebaseApp.configure()
+//                try PhoneAuthProvider.provider().verifyPhoneNumber(phone, uiDelegate: nil) { verificationID, error in
+//                    if let error = error {
+//                        print(error.localizedDescription)
+//                        return
+//                    }
+//                    print(verificationID)
+//                }
+//                print("Auth code sent to number")
+//            } catch {
+//                print("Error in userAuth")
+//
+//            }
+//        }
+        UserDefaults.standard.set(phone, forKey: "phone")
+        UserDefaults.standard.set(name, forKey: "name")
         Task{
-            do {
-                print("Running userAuth...")
-                UserDefaults.standard.set(phone, forKey: "phone")
+            do{
+                print("Starting userAuth...")
                 FirebaseApp.configure()
-                try PhoneAuthProvider.provider().verifyPhoneNumber(phone, uiDelegate: nil) { verificationID, error in
-                    if let error = error {
-                        print(error.localizedDescription)
-                        return
-                    }
-                    print(verificationID)
+                let db = Firestore.firestore()
+                print("db initialized")
+                
+                let docRef = db.collection("users").document(phone)
+                
+                let document = try await docRef.getDocument()
+                if document.exists {
+                    print("user exists in the database")
                 }
-                print("Auth code sent to number")
+                else {
+                    do{
+                        try await db.collection("users").document(phone).setData([
+                            "name": name
+                        ])
+                        print("Created new user")
+                    } catch {
+                        print("Error creating new user")
+                    }
+                }
+                
             } catch {
                 print("Error in userAuth")
-
             }
         }
         
@@ -87,7 +117,7 @@ struct LoginPage: View {
             }
             .padding()
             .navigationDestination(isPresented: $shouldNavigate) {
-                authVerif()
+                homePage()
             }
         }
     }
