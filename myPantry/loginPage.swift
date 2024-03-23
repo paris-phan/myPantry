@@ -6,36 +6,37 @@ import FirebaseFirestore
 
 struct LoginPage: View {
     
-    func userAuth(email: String, password: String) async{
+    func userAuth(phone: String, name: String) async{
         Task{
-            do{
-                print("starting userAuth()...")
-                FirebaseApp.configure()
-                let db = Firestore.firestore()
-                print("db initialised")
-                
-                let docRef = db.collection("users").document(email)
-                
-                let document = try await docRef.getDocument()
-                if document.exists {
-                    print("User exists in database")
-                    userExists = true
-                }
-                else{
-                    print("User does not exist")
-                    userExists = false
-                }
-            } catch {
-                print("Error grabbing user")
-                userExists = false
-            }
+            return true
+//            do{
+//                print("starting userAuth()...")
+//                FirebaseApp.configure()
+//                let db = Firestore.firestore()
+//                print("db initialised")
+//                
+//                let docRef = db.collection("users").document(phone)
+//                
+//                let document = try await docRef.getDocument()
+//                if document.exists {
+//                    print("User exists in database")
+//                    userExists = true
+//                }
+//                else{
+//                    print("User does not exist")
+//                    userExists = false
+//                }
+//            } catch {
+//                print("Error grabbing user")
+//                userExists = false
+//            }
         }
         
     }
     
     
-    @State private var email = ""
-    @State private var password = ""
+    @State private var phone = ""
+    @State private var name = ""
     @State private var shouldNavigate = false
     @State private var userExists = true
     
@@ -49,14 +50,14 @@ struct LoginPage: View {
                     .fontWeight(.bold)
                     .padding(.bottom, 20)
 
-                TextField("Email", text: $email)
+                TextField("Name", text: $name)
                     .padding()
                     .background(Color(.systemGray6))
                     .autocapitalization(/*@START_MENU_TOKEN@*/.none/*@END_MENU_TOKEN@*/)
                     .cornerRadius(5.0)
                     .padding(.bottom, 20)
                 
-                SecureField("Password", text: $password)
+                SecureField("Phone", text: $phone)
                     .padding()
                     .background(Color(.systemGray6))
                     .cornerRadius(5.0)
@@ -65,7 +66,7 @@ struct LoginPage: View {
                 Button(action: {
                     print("Login Button Pressed")
                     Task{
-                        await userAuth(email: email, password: password)
+                        await userAuth(phone: phone, name: name)
                     }
                     if userExists{
                         self.shouldNavigate = true
@@ -91,7 +92,7 @@ struct LoginPage: View {
             }
             .padding()
             .navigationDestination(isPresented: $shouldNavigate) {
-                homePage()
+                authVerif()
             }
         }
     }

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		025B0D192BAF56A5001F06BA /* loginPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025B0D182BAF56A5001F06BA /* loginPage.swift */; };
 		025B0D1F2BAF61BA001F06BA /* homePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025B0D1E2BAF61BA001F06BA /* homePage.swift */; };
+		02A68E7E2BAF7DC90079852A /* authVerif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A68E7D2BAF7DC90079852A /* authVerif.swift */; };
 		6E8A895D2BAF6C520034AFFA /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 6E8A895C2BAF6C520034AFFA /* FirebaseFirestore */; };
 		6E8C69272BAF535B0071AA25 /* myPantryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E8C69262BAF535B0071AA25 /* myPantryApp.swift */; };
 		6E8C69292BAF535B0071AA25 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E8C69282BAF535B0071AA25 /* ContentView.swift */; };
@@ -21,6 +22,7 @@
 /* Begin PBXFileReference section */
 		025B0D182BAF56A5001F06BA /* loginPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginPage.swift; sourceTree = "<group>"; };
 		025B0D1E2BAF61BA001F06BA /* homePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = homePage.swift; sourceTree = "<group>"; };
+		02A68E7D2BAF7DC90079852A /* authVerif.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = authVerif.swift; sourceTree = "<group>"; };
 		6E8A895E2BAF71F70034AFFA /* myPantry.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = myPantry.entitlements; sourceTree = "<group>"; };
 		6E8C69232BAF535B0071AA25 /* myPantry.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myPantry.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E8C69262BAF535B0071AA25 /* myPantryApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myPantryApp.swift; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 				6E8C69262BAF535B0071AA25 /* myPantryApp.swift */,
 				6E8C69282BAF535B0071AA25 /* ContentView.swift */,
 				025B0D182BAF56A5001F06BA /* loginPage.swift */,
+				02A68E7D2BAF7DC90079852A /* authVerif.swift */,
 				025B0D1E2BAF61BA001F06BA /* homePage.swift */,
 				6E8C692A2BAF535B0071AA25 /* Assets.xcassets */,
 				6E8C692C2BAF535B0071AA25 /* Preview Content */,
@@ -161,6 +164,7 @@
 			files = (
 				6E8C69292BAF535B0071AA25 /* ContentView.swift in Sources */,
 				6E8C69272BAF535B0071AA25 /* myPantryApp.swift in Sources */,
+				02A68E7E2BAF7DC90079852A /* authVerif.swift in Sources */,
 				025B0D192BAF56A5001F06BA /* loginPage.swift in Sources */,
 				025B0D1F2BAF61BA001F06BA /* homePage.swift in Sources */,
 			);
