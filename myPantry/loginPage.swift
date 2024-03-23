@@ -2,36 +2,29 @@ import SwiftUI
 import Firebase
 import FirebaseCore
 import FirebaseFirestore
-
+import FirebaseAuth
 
 struct LoginPage: View {
     
-    func userAuth(phone: String, name: String) async{
+    func userAuth(phone: String, name: String) {
         Task{
-            return true
-//            do{
-//                print("starting userAuth()...")
-//                FirebaseApp.configure()
-//                let db = Firestore.firestore()
-//                print("db initialised")
-//                
-//                let docRef = db.collection("users").document(phone)
-//                
-//                let document = try await docRef.getDocument()
-//                if document.exists {
-//                    print("User exists in database")
-//                    userExists = true
-//                }
-//                else{
-//                    print("User does not exist")
-//                    userExists = false
-//                }
-//            } catch {
-//                print("Error grabbing user")
-//                userExists = false
-//            }
+            do {
+                print("Running userAuth...")
+                UserDefaults.standard.set(phone, forKey: "phone")
+                FirebaseApp.configure()
+                try PhoneAuthProvider.provider().verifyPhoneNumber(phone, uiDelegate: nil) { verificationID, error in
+                    if let error = error {
+                        print(error.localizedDescription)
+                        return
+                    }
+                    print(verificationID)
+                }
+                print("Auth code sent to number")
+            } catch {
+                print("Error in userAuth")
+
+            }
         }
-        
         
     }
     
@@ -58,7 +51,7 @@ struct LoginPage: View {
                     .cornerRadius(5.0)
                     .padding(.bottom, 20)
                 
-                SecureField("Phone", text: $phone)
+                TextField("Phone", text: $phone)
                     .padding()
                     .background(Color(.systemGray6))
                     .cornerRadius(5.0)
@@ -67,7 +60,8 @@ struct LoginPage: View {
                 Button(action: {
                     print("Login Button Pressed")
                     Task{
-                        await userAuth(phone: phone, name: name)
+                        print("")
+                        userAuth(phone: phone, name: name)
                     }
                     if userExists{
                         self.shouldNavigate = true
