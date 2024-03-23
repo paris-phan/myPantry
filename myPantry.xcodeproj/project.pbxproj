@@ -61,9 +61,9 @@
 				6E8C69362BAF55730071AA25 /* GoogleService-Info.plist */,
 				6E8C69262BAF535B0071AA25 /* myPantryApp.swift */,
 				6E8C69282BAF535B0071AA25 /* ContentView.swift */,
+				025B0D182BAF56A5001F06BA /* loginPage.swift */,
 				6E8C692A2BAF535B0071AA25 /* Assets.xcassets */,
 				6E8C692C2BAF535B0071AA25 /* Preview Content */,
-				025B0D182BAF56A5001F06BA /* loginPage.swift */,
 			);
 			path = myPantry;
 			sourceTree = "<group>";
