@@ -4,31 +4,47 @@
 //
 //  Created by Abhinav Pappu on 3/23/24.
 //
-
 import SwiftUI
-import AuthenticationServices
 
 struct LoginPage: View {
+    @State private var name: String = ""
+    @State private var phone: String = ""
+    @State private var password: String = ""
+
+    
     var body: some View {
-        VStack {
-            Text("Hello, World!")
-            SignInWithAppleButton(.signUp) { request in
-                // Configure the request here.
-            } onCompletion: { result in
-                // Handle the authentication result here.
+        NavigationView {
+            Form {
+                Section(header: Text("Enter your info:")) {
+                    TextField("Name", text: $name)
+                        .autocapitalization(.words)
+                        .disableAutocorrection(true)
+                    
+                    TextField("Phone", text: $phone)
+                        .keyboardType(.emailAddress)
+                        .autocapitalization(.none)
+                        .disableAutocorrection(true)
+                    
+                    SecureField("Password", text: $password)
+                }
+
+                Button(action: logIn) {
+                    Text("Log In")
+                }
             }
-            .signInWithAppleButtonStyle(.black)
-            .frame(width: 280, height: 45)
+            .navigationBarTitle("Log In")
         }
+    }
+    
+    func logIn() {
+        // Implement the login logic here
+        // This might include form validation and sending data to a server
+        print("Logging in with Name: \(name), Phone: \(phone), Password: \(password)")
     }
 }
 
-
-
-// This is the correct way to define a preview in SwiftUI.
 struct LoginPage_Previews: PreviewProvider {
     static var previews: some View {
         LoginPage()
     }
 }
-
