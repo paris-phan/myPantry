@@ -12,9 +12,6 @@
 		6E32791F2BAF34AB002E8030 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E32791E2BAF34AB002E8030 /* ContentView.swift */; };
 		6E3279212BAF34AD002E8030 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6E3279202BAF34AD002E8030 /* Assets.xcassets */; };
 		6E3279242BAF34AD002E8030 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6E3279232BAF34AD002E8030 /* Preview Assets.xcassets */; };
-		6E32792E2BAF34AD002E8030 /* myPantryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E32792D2BAF34AD002E8030 /* myPantryTests.swift */; };
-		6E3279382BAF34AD002E8030 /* myPantryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3279372BAF34AD002E8030 /* myPantryUITests.swift */; };
-		6E32793A2BAF34AD002E8030 /* myPantryUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3279392BAF34AD002E8030 /* myPantryUITestsLaunchTests.swift */; };
 		6E61416B2BAF4E2C006A1DC3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6E61416A2BAF4E2B006A1DC3 /* GoogleService-Info.plist */; };
 		6E61416E2BAF4EA9006A1DC3 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 6E61416D2BAF4EA9006A1DC3 /* FirebaseAnalytics */; };
 /* End PBXBuildFile section */
@@ -44,10 +41,7 @@
 		6E3279202BAF34AD002E8030 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6E3279232BAF34AD002E8030 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		6E3279292BAF34AD002E8030 /* myPantryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = myPantryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		6E32792D2BAF34AD002E8030 /* myPantryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myPantryTests.swift; sourceTree = "<group>"; };
 		6E3279332BAF34AD002E8030 /* myPantryUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = myPantryUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		6E3279372BAF34AD002E8030 /* myPantryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myPantryUITests.swift; sourceTree = "<group>"; };
-		6E3279392BAF34AD002E8030 /* myPantryUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myPantryUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		6E61416A2BAF4E2B006A1DC3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -81,8 +75,6 @@
 			isa = PBXGroup;
 			children = (
 				6E32791B2BAF34AB002E8030 /* myPantry */,
-				6E32792C2BAF34AD002E8030 /* myPantryTests */,
-				6E3279362BAF34AD002E8030 /* myPantryUITests */,
 				6E32791A2BAF34AB002E8030 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -116,23 +108,6 @@
 				6E3279232BAF34AD002E8030 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		6E32792C2BAF34AD002E8030 /* myPantryTests */ = {
-			isa = PBXGroup;
-			children = (
-				6E32792D2BAF34AD002E8030 /* myPantryTests.swift */,
-			);
-			path = myPantryTests;
-			sourceTree = "<group>";
-		};
-		6E3279362BAF34AD002E8030 /* myPantryUITests */ = {
-			isa = PBXGroup;
-			children = (
-				6E3279372BAF34AD002E8030 /* myPantryUITests.swift */,
-				6E3279392BAF34AD002E8030 /* myPantryUITestsLaunchTests.swift */,
-			);
-			path = myPantryUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -282,7 +257,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6E32792E2BAF34AD002E8030 /* myPantryTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,8 +264,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6E32793A2BAF34AD002E8030 /* myPantryUITestsLaunchTests.swift in Sources */,
-				6E3279382BAF34AD002E8030 /* myPantryUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -438,7 +410,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"myPantry/Preview Content\"";
-				DEVELOPMENT_TEAM = 5ML5BZ26LS;
+				DEVELOPMENT_TEAM = J886JPN4X5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -467,7 +439,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"myPantry/Preview Content\"";
-				DEVELOPMENT_TEAM = 5ML5BZ26LS;
+				DEVELOPMENT_TEAM = J886JPN4X5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
