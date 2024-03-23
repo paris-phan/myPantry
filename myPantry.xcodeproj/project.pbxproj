@@ -22,6 +22,7 @@
 /* Begin PBXFileReference section */
 		025B0D182BAF56A5001F06BA /* loginPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginPage.swift; sourceTree = "<group>"; };
 		025B0D1E2BAF61BA001F06BA /* homePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = homePage.swift; sourceTree = "<group>"; };
+		026543DB2BAF964C0090954A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		02A0F4722BAF7F38005B0E03 /* authVerif.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = authVerif.swift; sourceTree = "<group>"; };
 		6E8A895E2BAF71F70034AFFA /* myPantry.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = myPantry.entitlements; sourceTree = "<group>"; };
 		6E8C69232BAF535B0071AA25 /* myPantry.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myPantry.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -64,6 +65,7 @@
 		6E8C69252BAF535B0071AA25 /* myPantry */ = {
 			isa = PBXGroup;
 			children = (
+				026543DB2BAF964C0090954A /* Info.plist */,
 				6E8A895E2BAF71F70034AFFA /* myPantry.entitlements */,
 				6E8C69262BAF535B0071AA25 /* myPantryApp.swift */,
 				6E8C69282BAF535B0071AA25 /* ContentView.swift */,
@@ -305,6 +307,7 @@
 				DEVELOPMENT_TEAM = 5ML5BZ26LS;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = myPantry/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -338,6 +341,7 @@
 				DEVELOPMENT_TEAM = 5ML5BZ26LS;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = myPantry/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
