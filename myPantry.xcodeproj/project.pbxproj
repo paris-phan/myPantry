@@ -15,6 +15,8 @@
 		6E32792E2BAF34AD002E8030 /* myPantryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E32792D2BAF34AD002E8030 /* myPantryTests.swift */; };
 		6E3279382BAF34AD002E8030 /* myPantryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3279372BAF34AD002E8030 /* myPantryUITests.swift */; };
 		6E32793A2BAF34AD002E8030 /* myPantryUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3279392BAF34AD002E8030 /* myPantryUITestsLaunchTests.swift */; };
+		6E61416B2BAF4E2C006A1DC3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6E61416A2BAF4E2B006A1DC3 /* GoogleService-Info.plist */; };
+		6E61416E2BAF4EA9006A1DC3 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 6E61416D2BAF4EA9006A1DC3 /* FirebaseAnalytics */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +48,7 @@
 		6E3279332BAF34AD002E8030 /* myPantryUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = myPantryUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E3279372BAF34AD002E8030 /* myPantryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myPantryUITests.swift; sourceTree = "<group>"; };
 		6E3279392BAF34AD002E8030 /* myPantryUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myPantryUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		6E61416A2BAF4E2B006A1DC3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E61416E2BAF4EA9006A1DC3 /* FirebaseAnalytics in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,6 +100,7 @@
 		6E32791B2BAF34AB002E8030 /* myPantry */ = {
 			isa = PBXGroup;
 			children = (
+				6E61416A2BAF4E2B006A1DC3 /* GoogleService-Info.plist */,
 				6E32791C2BAF34AB002E8030 /* myPantryApp.swift */,
 				6E32791E2BAF34AB002E8030 /* ContentView.swift */,
 				02C5F41B2BAF3E83008F90B3 /* loginPage.swift */,
@@ -146,6 +151,9 @@
 			dependencies = (
 			);
 			name = myPantry;
+			packageProductDependencies = (
+				6E61416D2BAF4EA9006A1DC3 /* FirebaseAnalytics */,
+			);
 			productName = myPantry;
 			productReference = 6E3279192BAF34AB002E8030 /* myPantry.app */;
 			productType = "com.apple.product-type.application";
@@ -218,6 +226,9 @@
 				Base,
 			);
 			mainGroup = 6E3279102BAF34AB002E8030;
+			packageReferences = (
+				6E61416C2BAF4EA9006A1DC3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 6E32791A2BAF34AB002E8030 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -236,6 +247,7 @@
 			files = (
 				6E3279242BAF34AD002E8030 /* Preview Assets.xcassets in Resources */,
 				6E3279212BAF34AD002E8030 /* Assets.xcassets in Resources */,
+				6E61416B2BAF4E2C006A1DC3 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -588,6 +600,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		6E61416C2BAF4EA9006A1DC3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.23.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		6E61416D2BAF4EA9006A1DC3 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6E61416C2BAF4EA9006A1DC3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 6E3279112BAF34AB002E8030 /* Project object */;
 }
