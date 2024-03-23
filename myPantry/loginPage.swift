@@ -1,10 +1,43 @@
 import SwiftUI
+import Firebase
+import FirebaseCore
+import FirebaseFirestore
 
 
 struct LoginPage: View {
+    
+    func userAuth(email: String, password: String) async{
+        Task{
+            do{
+                print("starting userAuth()...")
+                FirebaseApp.configure()
+                let db = Firestore.firestore()
+                print("db initialised")
+                
+                let docRef = db.collection("users").document(email)
+                
+                let document = try await docRef.getDocument()
+                if document.exists {
+                    print("User exists in database")
+                    userExists = true
+                }
+                else{
+                    print("User does not exist")
+                    userExists = false
+                }
+            } catch {
+                print("Error grabbing user")
+                userExists = false
+            }
+        }
+        
+    }
+    
+    
     @State private var email = ""
     @State private var password = ""
     @State private var shouldNavigate = false
+    @State private var userExists = true
     
     
     
@@ -19,6 +52,7 @@ struct LoginPage: View {
                 TextField("Email", text: $email)
                     .padding()
                     .background(Color(.systemGray6))
+                    .autocapitalization(/*@START_MENU_TOKEN@*/.none/*@END_MENU_TOKEN@*/)
                     .cornerRadius(5.0)
                     .padding(.bottom, 20)
                 
@@ -29,7 +63,19 @@ struct LoginPage: View {
                     .padding(.bottom, 20)
 
                 Button(action: {
-                    self.shouldNavigate = true
+                    print("Login Button Pressed")
+                    Task{
+                        await userAuth(email: email, password: password)
+                    }
+                    if userExists{
+                        self.shouldNavigate = true
+                    }
+                    else{
+                        //
+                        //TODO: make "email does not exist" pop up in red
+                        //
+                    }
+                    
                 }) {
                     Text("Login")
                         .font(.headline)
@@ -39,6 +85,9 @@ struct LoginPage: View {
                         .background(Color.green)
                         .cornerRadius(15.0)
                 }
+                
+                
+                
             }
             .padding()
             .navigationDestination(isPresented: $shouldNavigate) {
