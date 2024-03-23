@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>API_KEY</key>
+	<string>AIzaSyCXj0M7of-FflGhr7_0rW5Fi9ywrv0b63Q</string>
+	<key>GCM_SENDER_ID</key>
+	<string>715443997918</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>paris.myPantry</string>
+	<key>PROJECT_ID</key>
+	<string>mypantry-cc8a4</string>
+	<key>STORAGE_BUCKET</key>
+	<string>mypantry-cc8a4.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:715443997918:ios:e21b9a3f5805c2c284864f</string>
+</dict>
+</plist>
