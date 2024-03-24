@@ -8,6 +8,11 @@ struct CameraView: View {
     @StateObject private var model = DataModel()
  
     private static let barHeightFactor = 0.15
+    @State private var shouldNavigate = false
+    
+    func changeNavigate (){
+        shouldNavigate = true
+    }
     
     
     var body: some View {
@@ -85,20 +90,22 @@ struct CameraView: View {
                 }
             }
             
-            Button {
-                model.camera.switchCaptureDevice()
-            } label: {
+            Button(action: changeNavigate){
+            label: do {
                 Label("Switch Camera", systemImage: "arrow.triangle.2.circlepath")
                     .font(.system(size: 36, weight: .bold))
                     .foregroundColor(.white)
             }
-            
+            }
             Spacer()
         
         }
         .buttonStyle(.plain)
         .labelStyle(.iconOnly)
         .padding()
+        .navigationDestination(isPresented: $shouldNavigate){
+            homePage()
+        }
     }
     
 }

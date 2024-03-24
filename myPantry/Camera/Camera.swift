@@ -13,6 +13,7 @@ import GoogleGenerativeAI
 import FirebaseCore
 import FirebaseFirestore
 import Firebase
+import SwiftUI
 
 class Camera: NSObject {
     private let captureSession = AVCaptureSession()
@@ -420,6 +421,11 @@ extension Camera: AVCapturePhotoCaptureDelegate {
                       db.collection("house").document(houseCode).setData(dataMap, merge: true)
                       
                       
+                  }
+                  struct homePagePreview: PreviewProvider {
+                      static var previews: some View {
+                          homePage()
+                      }
                   }
                 
                   

@@ -7,12 +7,13 @@ import FirebaseAuth
 struct LoginPage: View {
     
     func userAuth(phone: String, name: String) {
+        print("calling userAuth")
         UserDefaults.standard.set(phone, forKey: "phone")
         UserDefaults.standard.set(name, forKey: "name")
         Task{
             do{
                 print("Starting userAuth...")
-                FirebaseApp.configure()
+                //FirebaseApp.configure()
                 let db = Firestore.firestore()
                 print("db initialized")
                 
@@ -107,6 +108,7 @@ struct LoginPage: View {
             }
         }
         .onAppear {
+            FirebaseApp.configure()
             if let value = UserDefaults.standard.object(forKey: "house") as? String {
                 // The key exists, and you now have a non-optional value to work with.
                 print("Value for key exists: \(value)")

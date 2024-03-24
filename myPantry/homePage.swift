@@ -69,7 +69,7 @@ struct homePage: View {
         Task {
             do {
                 print("StartinggetIngredients...")
-                FirebaseApp.configure()
+                //FirebaseApp.configure()
                 let db = Firestore.firestore()
                 
                 let docRef = db.collection("house").document(houseCode)
@@ -157,7 +157,7 @@ struct homePage: View {
                 Spacer()
                 if navigateToCameraView {
                     NavigationLink(destination: CameraView(), isActive: $navigateToCameraView) {
-                        EmptyView()
+                        CameraView()
                     }
                 }
                 if navigateToRecipes {
@@ -168,10 +168,10 @@ struct homePage: View {
             }
         }
         .onAppear {
-            if !didAlreadyAppear {
-                didAlreadyAppear = true
+            //if !didAlreadyAppear {
+            //    didAlreadyAppear = true
                 getIngredients()
-            }
+            //}
         }
 
 
