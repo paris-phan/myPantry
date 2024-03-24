@@ -68,7 +68,9 @@ struct homePage: View {
                 if document.exists {
                     let data = document.data().map(String.init(describing:)) ?? "nil"
                     ingredients = data
+                    
                     parseIngredients()
+                    
                     
 
                 } else {
@@ -112,6 +114,23 @@ struct homePage: View {
                             .overlay(Circle().stroke(Color.white, lineWidth: 2))
                     }
                 }
+                ScrollView {
+                    VStack(alignment: .leading, spacing: 10) {
+                        ForEach(Array(zip(primaryIngredient.indices, primaryIngredient)), id: \.0) { index, ingredient in
+                            HStack {
+                                Text(ingredient)
+                                    .font(.headline)
+                                Spacer()
+                                Text(expirationDate[index])
+                                    .font(.subheadline)
+                                    .foregroundColor(.gray)
+                            }
+                            .padding()
+                        }
+                    }
+                }
+                
+                Spacer()
                 .padding()
                 Spacer()
                 if navigateToCameraView {
