@@ -333,14 +333,53 @@ extension Camera: AVCapturePhotoCaptureDelegate {
     
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
         
-        var textRecognitionRequest = VNRecognizeTextRequest()
         
         if let error = error {
             logger.error("Error capturing photo: \(error.localizedDescription)")
             return
         }
         
+        // Assuming `photo` is your AVCapturePhoto instance
+        guard let imageData = photo.fileDataRepresentation() else { return }
+        guard let ciImage = CIImage(data: imageData) else { return }
         
+        
+        // Create a text recognition request
+        let textRequest = VNRecognizeTextRequest { (request, error) in
+            guard error == nil else {
+                // Handle any errors
+                print("Error processing request: \(error!.localizedDescription)")
+                return
+            }
+
+            guard let observations = request.results as? [VNRecognizedTextObservation] else {
+                print("No text found")
+                return
+            }
+
+            // Concatenate the recognized text from all observations
+            let recognizedText = observations.compactMap { observation in
+                // Return the top candidate for each observation
+                return observation.topCandidates(1).first?.string
+            }.joined(separator: "\n")
+            
+            // Here, `recognizedText` is your result string containing all recognized text
+            print(recognizedText)
+            
+            // If you want to store it outside, make sure to do it on the main thread if updating UI or similar
+        }
+        
+        // Specify some properties for the request, if needed
+        textRequest.recognitionLevel = .accurate
+        textRequest.usesLanguageCorrection = true
+
+        // Process the image
+        let handler = VNImageRequestHandler(ciImage: ciImage, options: [:])
+        do {
+            try handler.perform([textRequest])
+        } catch {
+            print("Failed to perform text recognition request: \(error)")
+        }
         
         
         
