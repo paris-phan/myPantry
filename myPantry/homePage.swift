@@ -13,9 +13,7 @@ struct homePage: View {
     @State private var primaryIngredient: [String] = []
     @State private var expirationDate: [String] = []
     
-    let k = 0;
 
-    
     
     
     
@@ -71,8 +69,7 @@ struct homePage: View {
                     let data = document.data().map(String.init(describing:)) ?? "nil"
                     ingredients = data
                     parseIngredients()
-                    print(primaryIngredient)
-                    print(expirationDate)
+                    
 
                 } else {
                     print("house does not exist (shouldn't happen)")
@@ -94,9 +91,10 @@ struct homePage: View {
                         Text("Add")
                             .font(.headline)
                             .foregroundColor(.white)
-                            .padding()
+                            .frame(width: 70, height: 70)
                             .background(Color.blue)
-                            .cornerRadius(10)
+                            .clipShape(Circle())
+                            .overlay(Circle().stroke(Color.white, lineWidth: 2))
                     }
                     VStack(alignment: .leading) {
                         Text("House Code:")
@@ -105,12 +103,13 @@ struct homePage: View {
                         Text(houseCode)
                     }
                     Button(action: goToRecipes) {
-                        Text("Recipe")
+                        Text("Recipes")
                             .font(.headline)
                             .foregroundColor(.white)
-                            .padding()
+                            .frame(width: 70, height: 70)
                             .background(Color.blue)
-                            .cornerRadius(10)
+                            .clipShape(Circle())
+                            .overlay(Circle().stroke(Color.white, lineWidth: 2))
                     }
                 }
                 .padding()
