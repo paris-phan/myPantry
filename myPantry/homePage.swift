@@ -2,13 +2,19 @@ import SwiftUI
 import Firebase
 import FirebaseCore
 import FirebaseFirestore
+import Foundation
+
+
 
 struct homePage: View {
     @State private var navigateToCameraView = false
     @State private var navigateToRecipes = false
-    @State private var ingredients = ""
-    @State private var primaryIngredient = ""
-    @State private var expirationData = ""
+    @State private var ingredients: String = ""
+    @State private var primaryIngredient: [String] = []
+    @State private var expirationDate: [String] = []
+    
+    let k = 0;
+
     
     
     
@@ -16,10 +22,32 @@ struct homePage: View {
     let houseCode = "123456"
     
     
-    func parseIngredients(){
+    func parseIngredients() {
+        //for some reason on appear gets called multiple times
+        primaryIngredient.removeAll()
+        expirationDate.removeAll()
         
+        let trimmedString = ingredients.trimmingCharacters(in: CharacterSet(charactersIn: "[]"))
+        let components = trimmedString.components(separatedBy: ", ")
+
+        var parsedIngredients: [String: String] = [:]
+
         
+        for component in components {
+            let itemComponents = component.components(separatedBy: ": ")
+            if itemComponents.count == 2 {
+                let key = itemComponents[0].trimmingCharacters(in: CharacterSet(charactersIn: "\""))
+                let value = itemComponents[1].trimmingCharacters(in: CharacterSet(charactersIn: "\""))
+                parsedIngredients[key] = value
+            }
+        }
+
+        for (key, value) in parsedIngredients {
+            primaryIngredient.append(key)
+            expirationDate.append(value)
+        }
     }
+
     
     func goToCameraView() {
         self.navigateToCameraView = true
@@ -32,7 +60,7 @@ struct homePage: View {
     func getIngredients() {
         Task {
             do {
-                print("Starting getIngredients...")
+                print("StartinggetIngredients...")
                 FirebaseApp.configure()
                 let db = Firestore.firestore()
                 
@@ -44,8 +72,8 @@ struct homePage: View {
                     ingredients = data
                     parseIngredients()
                     print(primaryIngredient)
-                    print(expirationData)
-                    print("yo")
+                    print(expirationDate)
+
                 } else {
                     print("house does not exist (shouldn't happen)")
                 }
