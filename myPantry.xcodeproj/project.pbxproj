@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		025B0D192BAF56A5001F06BA /* loginPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025B0D182BAF56A5001F06BA /* loginPage.swift */; };
 		025B0D1F2BAF61BA001F06BA /* homePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025B0D1E2BAF61BA001F06BA /* homePage.swift */; };
+		02852FEB2BB0329200623769 /* OpenSans-VariableFont_wdth,wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 02852FEA2BB0329200623769 /* OpenSans-VariableFont_wdth,wght.ttf */; };
 		02A0F4732BAF7F38005B0E03 /* authVerif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A0F4722BAF7F38005B0E03 /* authVerif.swift */; };
 		02EB27282BAFA17200A3D5B0 /* houseSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02EB27272BAFA17200A3D5B0 /* houseSetup.swift */; };
 		02EB272A2BAFA52200A3D5B0 /* houseCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02EB27292BAFA52200A3D5B0 /* houseCode.swift */; };
@@ -46,6 +47,7 @@
 /* Begin PBXFileReference section */
 		025B0D182BAF56A5001F06BA /* loginPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginPage.swift; sourceTree = "<group>"; };
 		025B0D1E2BAF61BA001F06BA /* homePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = homePage.swift; sourceTree = "<group>"; };
+		02852FEA2BB0329200623769 /* OpenSans-VariableFont_wdth,wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-VariableFont_wdth,wght.ttf"; sourceTree = "<group>"; };
 		02A0F4722BAF7F38005B0E03 /* authVerif.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = authVerif.swift; sourceTree = "<group>"; };
 		02EB27272BAFA17200A3D5B0 /* houseSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = houseSetup.swift; sourceTree = "<group>"; };
 		02EB27292BAFA52200A3D5B0 /* houseCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = houseCode.swift; sourceTree = "<group>"; };
@@ -94,6 +96,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		02852FE92BB031E800623769 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				02852FEA2BB0329200623769 /* OpenSans-VariableFont_wdth,wght.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		6E8C691A2BAF535B0071AA25 = {
 			isa = PBXGroup;
 			children = (
@@ -121,6 +131,7 @@
 				6E8C69282BAF535B0071AA25 /* ContentView.swift */,
 				025B0D1E2BAF61BA001F06BA /* homePage.swift */,
 				02F23BFB2BAFEE2500E6EE18 /* recipes.swift */,
+				02852FE92BB031E800623769 /* Fonts */,
 				02EB27272BAFA17200A3D5B0 /* houseSetup.swift */,
 				025B0D182BAF56A5001F06BA /* loginPage.swift */,
 				02EB27292BAFA52200A3D5B0 /* houseCode.swift */,
@@ -235,6 +246,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02852FEB2BB0329200623769 /* OpenSans-VariableFont_wdth,wght.ttf in Resources */,
 				6E8C692E2BAF535B0071AA25 /* Preview Assets.xcassets in Resources */,
 				6E8C692B2BAF535B0071AA25 /* Assets.xcassets in Resources */,
 				6E670BF82BAF9893000E9C84 /* GoogleService-Info.plist in Resources */,

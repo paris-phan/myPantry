@@ -13,5 +13,9 @@
 			<string>None</string>
 		</dict>
 	</array>
+	<key>UIAppFonts</key>
+	<array>
+		<string>OpenSans-VariableFont_wdth,wght.ttf</string>
+	</array>
 </dict>
 </plist>
