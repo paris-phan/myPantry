@@ -90,31 +90,43 @@ struct homePage: View {
     var body: some View {
         NavigationView {
             VStack {
-                HStack {
-                    Button(action: goToCameraView) {
-                        Text("Add")
-                            .font(.headline)
-                            .foregroundColor(.white)
-                            .frame(width: 70, height: 70)
-                            .background(Color.blue)
-                            .clipShape(Circle())
-                            .overlay(Circle().stroke(Color.white, lineWidth: 2))
-                    }
+                HStack (alignment: .center){
+                    
+                    Button("Add", action: goToCameraView)
+                        .neumorphicButtonModifier()
+                    
+//                    {
+//                        Text("Add")
+//                            
+//                            .font(.headline)
+//                            .foregroundColor(.white)
+//                            .frame(width: 70, height: 70)
+//                            .background(Color.blue)
+//                            //.clipShape(Circle())
+//                            //.overlay(Circle().stroke(Color.white, lineWidth: 2))
+//                    }
+                    Spacer()
                     VStack(alignment: .leading) {
                         Text("House Code:")
                             .font(.caption)
                             .foregroundColor(.gray)
                         Text(houseCode)
                     }
-                    Button(action: goToRecipes) {
-                        Text("Recipes")
-                            .font(.headline)
-                            .foregroundColor(.white)
-                            .frame(width: 70, height: 70)
-                            .background(Color.blue)
-                            .clipShape(Circle())
-                            .overlay(Circle().stroke(Color.white, lineWidth: 2))
-                    }
+                    Spacer()
+                    Button("Recipes", action: goToRecipes)
+                        .neumorphicButtonModifier()
+                        
+//                    {
+//                        Text("Recipes")
+//                            .font(.headline)
+//                            .foregroundColor(.white)
+//                            .frame(width: 70, height: 70)
+//                            .background(Color.blue)
+//                            .clipShape(Circle())
+//                            .overlay(Circle().stroke(Color.white, lineWidth: 2))
+//                    }
+                    
+                    //.frame(maxWidth:300)
                 }
                 ScrollView {
                     VStack(alignment: .leading, spacing: 10) {
