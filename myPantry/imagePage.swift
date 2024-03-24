@@ -11,17 +11,24 @@
 //  myPantry
 //
 //  Created by Ab
-hinav Pappu on 3/23/24.
+//Ahinav Pappu on 3/23/24.
 //
-import AVFoundation
-import UIKit
+import SwiftUI
 
-
-
-
-struct imagePagePreview: PreviewProvider {
-    static var previews: some View {
-        imagePage()
+struct imagePage: View {
+    var body: some View {
+        VStack {
+            Image(systemName: "globe")
+                .imageScale(.large)
+                .foregroundStyle(.tint)
+            Text("Hello, world!")
+        }
+        .padding()
     }
 }
+
+#Preview {
+    imagePage()
+}
+
 
