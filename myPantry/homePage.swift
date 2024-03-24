@@ -18,7 +18,7 @@ struct homePage: View {
     
     
     
-    let houseCode = "123456"
+    let houseCode = UserDefaults.standard.string(forKey: "house") ?? "123456"
     
     
     func parseIngredients() {
@@ -60,7 +60,6 @@ struct homePage: View {
         Task {
             do {
                 print("StartinggetIngredients...")
-                //FirebaseApp.configure()
                 let db = Firestore.firestore()
                 
                 let docRef = db.collection("house").document(houseCode)
@@ -127,7 +126,9 @@ struct homePage: View {
 //                    }
                     
                     //.frame(maxWidth:300)
+                
                 }
+                
                 ScrollView {
                     VStack(alignment: .leading, spacing: 10) {
                         ForEach(Array(zip(primaryIngredient.indices, primaryIngredient)), id: \.0) { index, ingredient in
@@ -157,6 +158,8 @@ struct homePage: View {
                 
             
                 //Spacer()
+                
+                
                 if navigateToCameraView {
                     NavigationLink(destination: CameraView(), isActive: $navigateToCameraView) {
                         CameraView()
@@ -169,6 +172,7 @@ struct homePage: View {
                 }
             }
         }
+        
         .onAppear {
             //if !didAlreadyAppear {
             //    didAlreadyAppear = true

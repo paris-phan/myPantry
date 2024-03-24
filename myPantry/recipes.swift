@@ -13,7 +13,7 @@ struct recipes: View {
     @State private var ingredients: String = ""
     @State private var primaryIngredient: [String] = []
     @State private var expirationDate: [String] = []
-    let houseCode = "123456"
+    let houseCode = UserDefaults.standard.string(forKey: "house") ?? ""
     
     func parseIngredients() {
         //for some reason on appear gets called multiple times
@@ -163,7 +163,12 @@ struct recipes: View {
             Spacer()
         }
         .padding()
-        .frame(maxHeight: .infinity, alignment: .topLeading)
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+        //.frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background {
+            Color.accentColor.opacity(0.3)
+                .ignoresSafeArea()
+        }
         .onAppear{
             getIngredients()
             getRecipes()

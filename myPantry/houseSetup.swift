@@ -48,7 +48,7 @@ struct houseSetup: View {
             VStack {
                 
                 Text("Join or Create a House")
-                    .font(.largeTitle)
+                    .font(.custom("STIX Two Text", size: 30))
                     .fontWeight(.bold)
                     .padding(.bottom, 20)
                 Image("home/home1")
@@ -59,33 +59,32 @@ struct houseSetup: View {
                     
                 
                 TextField("Leave blank to create", text: $identifier)
-                    .padding()
-                    .background(Color(.systemGray6))
-                    .cornerRadius(5.0)
-                    .padding(.bottom, 20) // Corrected padding
+                    .neumorphicTextFieldStyle()
+//                    .padding()
+//                    .background(Color(.systemGray6))
+//                    .cornerRadius(5.0)
+//                    .padding(.bottom, 20) // Corrected padding
 
-                Button(action:{
+                Button("Join/Create", action:{
                     Task{
                         let hasHouse = await houseSetup(code: identifier)
                         print("returned from houseSetup, hasHouse = " + String(hasHouse))
                         }
-                    }) {
-                    Text("Join/Create")
-                        .font(.headline)
-                        .foregroundColor(.white)
-                        .padding()
-                        .frame(width: 220, height: 60)
-                        .background(Color.blue)
-                        .cornerRadius(15.0)
-                }
+                    })
+                .neumorphicButtonModifier()
             }
             .padding()
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background {
+                Color.accentColor.opacity(0.3)
+                    .ignoresSafeArea()
+            }
             .navigationDestination(isPresented: $shouldNavigate){
-                //homePage()
-                CameraView()
+                homePage()
+                
             }
             .navigationDestination(isPresented: $shouldNavigate2){
-                houseCode()
+                CameraView()
             }
             
         }

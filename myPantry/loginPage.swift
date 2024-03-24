@@ -47,6 +47,7 @@ struct LoginPage: View {
     @State private var shouldNavigate = false
     @State private var shouldNavigate2 = false
     @State private var userExists = true
+    @State private var configureBool = false
     
     
     
@@ -54,7 +55,7 @@ struct LoginPage: View {
         NavigationStack {
             VStack {
                 Text("myPantry")
-                    .font(.largeTitle)
+                    .font(.custom("STIX Two Text", size: 60))
                     .fontWeight(.bold)
                     .padding(.bottom, 20)
                 Image("pantry/pantry1")
@@ -62,21 +63,24 @@ struct LoginPage: View {
                     .scaledToFit()
                     .frame(height: 200)
                     .padding(.bottom, 20)
+                    
 
                 TextField("Name", text: $name)
-                    .padding()
-                    .background(Color(.systemGray6))
-                    .autocapitalization(/*@START_MENU_TOKEN@*/.none/*@END_MENU_TOKEN@*/)
-                    .cornerRadius(5.0)
-                    .padding(.bottom, 20)
+                    .neumorphicTextFieldStyle()
+//                    .padding()
+//                    .background(Color(.systemGray6))
+//                    .autocapitalization(/*@START_MENU_TOKEN@*/.none/*@END_MENU_TOKEN@*/)
+//                    .cornerRadius(5.0)
+//                    .padding(.bottom, 20)
                 
                 TextField("Phone", text: $phone)
-                    .padding()
-                    .background(Color(.systemGray6))
-                    .cornerRadius(5.0)
-                    .padding(.bottom, 20)
+                    .neumorphicTextFieldStyle()
+//                    .padding()
+//                    .background(Color(.systemGray6))
+//                    .cornerRadius(5.0)
+//                    .padding(.bottom, 20)
 
-                Button(action: {
+                Button("Login", action: {
                     print("Login Button Pressed")
                     Task{
                         print("")
@@ -91,20 +95,28 @@ struct LoginPage: View {
                         //
                     }
                     
-                }) {
-                    Text("Login")
-                        .font(.headline)
-                        .foregroundColor(.white)
-                        .padding()
-                        .frame(width: 220, height: 60)
-                        .background(Color.blue)
-                        .cornerRadius(15.0)
-                }
+                }) 
+                .neumorphicButtonModifier()
+//                {
+//                    Text("Login")
+//                        .font(.headline)
+//                        .foregroundColor(.white)
+//                        .padding()
+//                        .frame(width: 220, height: 60)
+//                        .background(Color.blue)
+//                        .cornerRadius(15.0)
+//                }
                 
                 
                 
             }
+            
             .padding()
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background {
+                Color.accentColor.opacity(0.3)
+                    .ignoresSafeArea()
+            }
             .navigationDestination(isPresented: $shouldNavigate){
                 houseSetup()
             }
@@ -113,7 +125,11 @@ struct LoginPage: View {
             }
         }
         .onAppear {
-            FirebaseApp.configure()
+            if configureBool == false {
+                print("!!!firebase configure!!!")
+                FirebaseApp.configure()
+                configureBool = true
+            }
             if let value = UserDefaults.standard.object(forKey: "house") as? String {
                 // The key exists, and you now have a non-optional value to work with.
                 print("Value for key exists: \(value)")

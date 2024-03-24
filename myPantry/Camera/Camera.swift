@@ -416,7 +416,7 @@ extension Camera: AVCapturePhotoCaptureDelegate {
                   Task{
                       //FirebaseApp.configure()
                       let db = Firestore.firestore()
-                      let houseCode = "123456"
+                      let houseCode = UserDefaults.standard.string(forKey: "house") ?? ""
                       
                       db.collection("house").document(houseCode).setData(dataMap, merge: true)
                       
