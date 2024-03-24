@@ -6,6 +6,8 @@ import AVFoundation
 import CoreImage
 import UIKit
 import os.log
+import VisionKit
+import Vision
 
 class Camera: NSObject {
     private let captureSession = AVCaptureSession()
@@ -331,11 +333,18 @@ extension Camera: AVCapturePhotoCaptureDelegate {
     
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
         
+        var textRecognitionRequest = VNRecognizeTextRequest()
+        
         if let error = error {
             logger.error("Error capturing photo: \(error.localizedDescription)")
             return
         }
         
+        
+        
+        
+        
+        //TODO: photo is of type AVCapturePhoto
         addToPhotoStream?(photo)
     }
 }
