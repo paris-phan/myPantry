@@ -44,6 +44,7 @@ struct LoginPage: View {
     @State private var phone = ""
     @State private var name = ""
     @State private var shouldNavigate = false
+    @State private var shouldNavigate2 = false
     @State private var userExists = true
     
     
@@ -100,6 +101,20 @@ struct LoginPage: View {
             .padding()
             .navigationDestination(isPresented: $shouldNavigate){
                 houseSetup()
+            }
+            .navigationDestination(isPresented: $shouldNavigate2){
+                homePage()
+            }
+        }
+        .onAppear {
+            if let value = UserDefaults.standard.object(forKey: "house") as? String {
+                // The key exists, and you now have a non-optional value to work with.
+                print("Value for key exists: \(value)")
+                shouldNavigate2 = true
+                
+            } else {
+                // The key does not exist.
+                print("Key does not exist")
             }
         }
     }

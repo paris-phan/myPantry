@@ -10,7 +10,7 @@ import AVFoundation
 import UIKit
 
 
-class CameraViewModel: NSObject, ObservableObject, AVCapturePhotoCaptureDelegate {
+class CameraViewModel: NSObject, ObservableObject,  AVCapturePhotoCaptureDelegate {
     @Published var image: UIImage?
     private let captureSession = AVCaptureSession()
     private let output = AVCapturePhotoOutput()
