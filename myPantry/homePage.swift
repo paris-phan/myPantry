@@ -12,8 +12,18 @@ struct homePage: View {
     @State private var ingredients: String = ""
     @State private var primaryIngredient: [String] = []
     @State private var expirationDate: [String] = []
+    @State private var didAlreadyAppear = false
+    @State private var expiresIn = []
     
-
+    
+    
+    func formatDates(){
+        
+    }
+    func expiresInXDays(){
+        let date = Date()
+    }
+    
     
     
     
@@ -70,7 +80,8 @@ struct homePage: View {
                     ingredients = data
                     
                     parseIngredients()
-                    
+                    print(primaryIngredient)
+                    print(expirationDate)
                     
 
                 } else {
@@ -121,14 +132,25 @@ struct homePage: View {
                                 Text(ingredient)
                                     .font(.headline)
                                 Spacer()
-                                Text(expirationDate[index])
-                                    .font(.subheadline)
-                                    .foregroundColor(.gray)
+                                VStack(alignment: .trailing) {  // Align text to the right
+                                    Text("Expire Date:")
+                                        .font(.subheadline)
+                                        .foregroundColor(.gray)
+                                    Text(expirationDate[index])
+                                        .font(.subheadline)
+                                        .foregroundColor(.gray)
+                                }
                             }
                             .padding()
                         }
+                        Spacer() // Pushes all content to the top
                     }
                 }
+                .frame(maxWidth: .infinity, maxHeight: .infinity) // Ensure ScrollView expands to fill available space
+                .edgesIgnoringSafeArea(.all) // Optional: Allows the ScrollView to extend to the edges of the screen
+
+
+
                 
                 Spacer()
                 .padding()
@@ -145,9 +167,14 @@ struct homePage: View {
                 }
             }
         }
-        .onAppear{
-            getIngredients()
+        .onAppear {
+            if !didAlreadyAppear {
+                didAlreadyAppear = true
+                getIngredients()
+            }
         }
+
+
     }
 }
 
