@@ -2,32 +2,33 @@ import SwiftUI
 
 struct recipes: View {
     var body: some View {
-        VStack(alignment: .leading){
+        VStack(alignment: .leading) {
             Text("My Recipes")
                 .font(.largeTitle)
-                .padding(.bottom, 10)
-            Text("Discover and save your favorite recipes here!")
-                .font(.body)
-                .padding(.horizontal)
-            Text("My Recipes")
-                .font(.largeTitle)
-                .padding(.bottom, 10)
 
             Text("Discover and save your favorite recipes here!")
                 .font(.body)
-                .padding(.horizontal)
+                .padding(.bottom, 5)
             Text("My Recipes")
                 .font(.largeTitle)
-                .padding(.bottom, 10)
-
+                
             Text("Discover and save your favorite recipes here!")
                 .font(.body)
-                .padding(.horizontal)
+                .padding(.bottom, 5)
+            
+            Text("My Recipes")
+                .font(.largeTitle)
+            
+            Text("Discover and save your favorite recipes here!")
+                .font(.body)
+                .padding(.bottom, 5)
+
+                
+            Spacer()
         }
         .padding()
-        .frame(alignment: .topLeading)
+        .frame(maxHeight: .infinity, alignment: .topLeading)
     }
-    
 }
 
 struct recipes_preview: PreviewProvider {
