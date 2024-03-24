@@ -9,5 +9,3 @@ struct homePage: View {
 #Preview {
     homePage()
 }
-
-
