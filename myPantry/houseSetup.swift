@@ -10,6 +10,8 @@ struct houseSetup: View {
     @State private var shouldNavigate2 = false
     
     func houseSetup(code: String) async -> Bool{
+        print("running houseSetup")
+        print(code)
         if code.isEmpty{
             print("Creating new house")
             
@@ -33,8 +35,10 @@ struct houseSetup: View {
                 let db = Firestore.firestore()
                 let docRef = db.collection("house").document(code)
                 let document = try await docRef.getDocument()
+                print(document)
                 if document.exists {
                     UserDefaults.standard.set(code, forKey: "house")
+                    print("successful userdefault set house")
                 } else { print("House does not exist") }
                 
             } catch { print("Error finding house") }

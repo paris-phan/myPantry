@@ -105,6 +105,7 @@ struct recipes: View {
             print(response)
               
               let responseData = splitRecipes(from: response)
+              print(responseData)
               firstRecipe = responseData[0]
               firstDesc = responseData[1]
               secondRecipe = responseData[2]
@@ -132,6 +133,15 @@ struct recipes: View {
                 result.append(title)
                 result.append(ingredients)
             }
+        }
+        
+        if(result.count < 4){
+            result = [
+                "Recipe 1: Not enough ingredients!",
+                "Ingredients: n/a",
+                "Recipe 2: Not enough ingredients!",
+                "Ingredients: n/a"
+            ]
         }
         
         return result
