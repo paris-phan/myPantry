@@ -35,6 +35,7 @@
 		6EF313282BAFE718004A82D4 /* PhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF313192BAFE718004A82D4 /* PhotoView.swift */; };
 		6EF313292BAFE718004A82D4 /* ThumbnailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF3131A2BAFE718004A82D4 /* ThumbnailView.swift */; };
 		6EF3132A2BAFE718004A82D4 /* ViewfinderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF3131B2BAFE718004A82D4 /* ViewfinderView.swift */; };
+		6EF5AD1C2BAFF35D00DFFF46 /* OpenAISwift in Frameworks */ = {isa = PBXBuildFile; productRef = 6EF5AD1B2BAFF35D00DFFF46 /* OpenAISwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6EF5AD1C2BAFF35D00DFFF46 /* OpenAISwift in Frameworks */,
 				6E8C69392BAF559E0071AA25 /* FirebaseAnalytics in Frameworks */,
 				6E8C693B2BAF559E0071AA25 /* FirebaseAuth in Frameworks */,
 				6E8A895D2BAF6C520034AFFA /* FirebaseFirestore in Frameworks */,
@@ -168,6 +170,7 @@
 				6E8C69382BAF559E0071AA25 /* FirebaseAnalytics */,
 				6E8C693A2BAF559E0071AA25 /* FirebaseAuth */,
 				6E8A895C2BAF6C520034AFFA /* FirebaseFirestore */,
+				6EF5AD1B2BAFF35D00DFFF46 /* OpenAISwift */,
 			);
 			productName = myPantry;
 			productReference = 6E8C69232BAF535B0071AA25 /* myPantry.app */;
@@ -199,6 +202,7 @@
 			mainGroup = 6E8C691A2BAF535B0071AA25;
 			packageReferences = (
 				6E8C69372BAF559E0071AA25 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				6EF5AD1A2BAFF35D00DFFF46 /* XCRemoteSwiftPackageReference "OpenAISwift" */,
 			);
 			productRefGroup = 6E8C69242BAF535B0071AA25 /* Products */;
 			projectDirPath = "";
@@ -478,6 +482,14 @@
 				minimumVersion = 10.23.0;
 			};
 		};
+		6EF5AD1A2BAFF35D00DFFF46 /* XCRemoteSwiftPackageReference "OpenAISwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/adamrushy/OpenAISwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.4.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -495,6 +507,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 6E8C69372BAF559E0071AA25 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAuth;
+		};
+		6EF5AD1B2BAFF35D00DFFF46 /* OpenAISwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6EF5AD1A2BAFF35D00DFFF46 /* XCRemoteSwiftPackageReference "OpenAISwift" */;
+			productName = OpenAISwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
