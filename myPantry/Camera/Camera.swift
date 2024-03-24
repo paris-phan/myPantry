@@ -9,6 +9,10 @@ import os.log
 import VisionKit
 import Vision
 import OpenAIKit
+import GoogleGenerativeAI
+import FirebaseCore
+import FirebaseFirestore
+import Firebase
 
 class Camera: NSObject {
     private let captureSession = AVCaptureSession()
@@ -367,12 +371,88 @@ extension Camera: AVCapturePhotoCaptureDelegate {
             // Here, `recognizedText` is your result string containing all recognized text
             print(recognizedText)
             
+            
+            
+            let config = GenerationConfig(
+              temperature: 0.9,
+              topP: 1,
+              topK: 1,
+              maxOutputTokens: 2048
+            )
+
+            // Don't check your API key into source control!
+            let apiKey = "AIzaSyD8l8t4rw3kT61cLlVgiIporeV5L69Uino"
+
+            let model = GenerativeModel(
+              name: "gemini-1.0-pro",
+              apiKey: apiKey,
+              generationConfig: config,
+              safetySettings: [
+                SafetySetting(harmCategory: .harassment, threshold: .blockMediumAndAbove),
+                SafetySetting(harmCategory: .hateSpeech, threshold: .blockMediumAndAbove),
+                SafetySetting(harmCategory: .sexuallyExplicit, threshold: .blockMediumAndAbove),
+                SafetySetting(harmCategory: .dangerousContent, threshold: .blockMediumAndAbove)
+              ]
+            )
+
+            Task {
+              do {
+                let response = try await model.generateContent(
+                    "The prompt will contain text data of a grocery receipt. For every item purchased, give the item name and approximately when it will expire. Calculate the approximate expiration dates by assuming what type of food it is and its average shelf-life. Assume all purchases are made the day of. Give the result in this format:\n\n \"item_one\" : \"mm-dd-yyyy\",\n\"item_two\" : \"mm-dd-yyyy\",\n\"item_three\" : \"mm-dd-yyyy\"",
+                      "input: TRADER JOE'S\n2025 Bond Street\n22901\nCharlottesville,\nStore #0661 - 434-974-1466\nOPEN 8:00AM TO 9:00PM DAILY\nSALE TRANSACTION\nSLICED JACK WITH PEPPERS\nCHICKEN SOUP DUMPLINGS\n2 0 $3.49\nLITE SHREDDED MOZZARELLA\nCRACKERS ORG NAAN GARLIC\nVEGETABLE PAD THAI\nGREEN BEANS GARLIC SHIIT\nMINI PLAIN BAGELS\nRASPBERRIES 6 OZ\nSTRAWBERRIES 1 LB\nR-PINEBERRIES\n100Z\nSALAD ORGANIC BABY SPINA\nTax:\n$41.38 @ 1.0%\nItems in Transaction: 12\nBalance to pay\nVISA\n$4.49\n$6.98\n$3.49\n$3.49\n$3,49\n$2.99\n$3.49\n$3.99\n$3.99\n$2.29\n$0.41\n$41.79\n$41.79\nPAYMENT CARD PURCHASE\nTRANSACTION\nCUSTOMER COPY\nUS DEBIT\nlype:\nChip Read\nAID: A0000000980840\nTVR: 8000088000\nIAD: 06011203A08000\nMID: *******27013\nTOTAL PURCHASE\n************5743\nAuth Code:\n122787\nPAN Seq:\nTSI:\n6800\nTID:\n**34. 79\nPlease retain for your records\nTS Alison\nTRANS.\n278662\nTHANK YOU FOR SHOPPING AT\nTRADER JOE'S\nwww.traderjoes.com\nDATE\n03-22-24 18:28\ndua\n008d\nOOH\nROL\nTax:\ni Transaction\nto pay\nDebit\nAYMENT CARD PURCHASE\nAYMENT CARD PURCHASE\nCUSTOMER\nCUSTOMER\nCOPY TRA\nACTLESS\n******\nCode:\n**",
+                      "output: \"Sliced Jack With Peppers\" : \"04-05-2024\",\n\"Chicken Soup Dumplings\" : \"09-22-2024\",\n\"Lite Shredded Mozzarella\" : \"04-05-2024\",\n\"Crackers Org Naan Garlic\" : \"09-22-2024\",\n\"Vegetable Pad Thai\" : \"09-22-2024\",\n\"Green Beans Garlic\" : \"03-29-2024\",\n\"Mini Plain Bagels\" : \"03-29-2024\",\n\"Raspberries 6oz\" : \"03-25-2024\",\n\"Strawberries 1lb\" : \"03-25-2024\",\n\"R-Pineberries 10oz\" : \"03-25-2024\",\n\"Salad Organic Baby Spinach\" : \"03-29-2024\"",
+                      "input: TRA\n2025 Bono\nCharlottesville,\nstore #0661 - 43\nOPEN 8:00AM TO 9:00P\\\nSALE TRANSACTIO\nPASTA RAVIOLONI ITALIAN\nDUMPLINGS PORK AND GINGE\n2 ₫ $3.49\nCHICKEN TIKKA SAMOSAS\n4 0 $4.49\nTORTILLA ROLLED CHILI LI\nTax: $31.92 @ 1.0%\nItems in Transaction:8\nBalance to pay\nVisa Debit\n$32.\nPAYMENT CAPO PURCHASE TP\nCUSTOMER MO\nUS DEBIT\nType:\nMTD:",
+                      "output: \"Pasta Ravioloni Italian\" : \"04-06-2024\",\n\"Dumplings Pork and Ginger\" : \"09-22-2024\",\n\"Chicken Tikka Samosas\" : \"09-22-2024\",\n\"Tortilla Rolled Chilli Lime\" : \"09-22-2024\",",
+                      "input: \(recognizedText)",
+                  "output: "
+                )
+                print(response.text ?? "No text available")
+                
+                  
+                  let dataMap = self.stringToMap(input: response.text ?? "No text available")
+                  print(dataMap)
+                  
+                  Task{
+                      //FirebaseApp.configure()
+                      let db = Firestore.firestore()
+                      let houseCode = "123456"
+                      
+                      db.collection("house").document(houseCode).setData(dataMap, merge: true)
+                      
+                      
+                  }
+                
+                  
+                  
+              } catch {
+                print(error)
+              }
+            }
+            
+            
+            
+            
+            
+            
+            
+            
+            // Access your API key from your on-demand resource .plist file
+            // (see "Set up your API key" above)
+//            Task{
+//                let model = GenerativeModel(name: "receiptParserMyPantry", apiKey: "AIzaSyD8l8t4rw3kT61cLlVgiIporeV5L69Uino")
+//                let prompt = recognizedText
+//                let response = try await model.generateContent(prompt)
+//                if let text = response.text {
+//                    print(text)
+//                }
+//            }
+            
             // If you want to store it outside, make sure to do it on the main thread if updating UI or similar
         }
         
         // Specify some properties for the request, if needed
-        textRequest.recognitionLevel = .accurate
-        textRequest.usesLanguageCorrection = true
+//        textRequest.recognitionLevel = .accurate
+//        textRequest.usesLanguageCorrection = true
 
         // Process the image
         let handler = VNImageRequestHandler(ciImage: ciImage, options: [:])
@@ -384,8 +464,27 @@ extension Camera: AVCapturePhotoCaptureDelegate {
         
         
         
+        
+        
+        
         //TODO: photo is of type AVCapturePhoto
-        addToPhotoStream?(photo)
+        //addToPhotoStream?(photo)
+    }
+    func stringToMap(input: String) -> [String: String] {
+        var map = [String: String]()
+        // Split the string into lines
+        let lines = input.components(separatedBy: ",\n")
+        for line in lines {
+            // Split each line by " : " to separate the key and value
+            let components = line.components(separatedBy: "\" : \"")
+            if components.count == 2 {
+                // Extract the key and value, trimming the quotes and whitespace
+                let key = components[0].trimmingCharacters(in: CharacterSet(charactersIn: "\""))
+                let value = components[1].trimmingCharacters(in: CharacterSet(charactersIn: "\","))
+                map[key] = value
+            }
+        }
+        return map
     }
 }
 
