@@ -76,7 +76,8 @@ struct houseSetup: View {
             }
             .padding()
             .navigationDestination(isPresented: $shouldNavigate){
-                homePage()
+                //homePage()
+                ContentView()
             }
             .navigationDestination(isPresented: $shouldNavigate2){
                 houseCode()
