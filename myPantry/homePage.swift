@@ -167,7 +167,7 @@ struct homePage: View {
                 }
                 if navigateToRecipes {
                     NavigationLink(destination: recipes(), isActive: $navigateToRecipes) {
-                        EmptyView()
+                        recipes()
                     }
                 }
             }

@@ -45,7 +45,7 @@ struct recipes: View {
         Task {
             do {
                 print("StartinggetIngredients...")
-                FirebaseApp.configure()
+                //FirebaseApp.configure()
                 let db = Firestore.firestore()
                 
                 let docRef = db.collection("house").document(houseCode)
@@ -101,10 +101,10 @@ struct recipes: View {
         Task {
           do {
             let message = "Given the following ingredients, come up with two recipes. Each recipe should have a title and ingredients list, separated by a colon : \n\nHere are the ingredients, \(primaryIngredient)"
-            let response = try await chat.sendMessage(message)
-            print(response.text ?? "No response received")
+              let response = (try await chat.sendMessage(message)).text ?? "damn"
+            print(response)
               
-              let responseData = splitRecipes(from: response.text ?? "No response received")
+              let responseData = splitRecipes(from: response)
               firstRecipe = responseData[0]
               firstDesc = responseData[1]
               secondRecipe = responseData[2]
