@@ -7,12 +7,20 @@
 
 import SwiftUI
 
+
+let houseName = UserDefaults.standard.string(forKey: "House")
+
+
+
 struct houseCode: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Text("\(houseName)")
+        
     }
 }
 
-#Preview {
-    houseCode()
+struct housecode_preview: PreviewProvider {
+    static var previews: some View {
+        houseCode()
+    }
 }

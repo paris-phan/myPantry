@@ -12,6 +12,7 @@
 		02A0F4732BAF7F38005B0E03 /* authVerif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A0F4722BAF7F38005B0E03 /* authVerif.swift */; };
 		02EB27282BAFA17200A3D5B0 /* houseSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02EB27272BAFA17200A3D5B0 /* houseSetup.swift */; };
 		02EB272A2BAFA52200A3D5B0 /* houseCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02EB27292BAFA52200A3D5B0 /* houseCode.swift */; };
+		02EB272C2BAFB62D00A3D5B0 /* imagePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02EB272B2BAFB62D00A3D5B0 /* imagePage.swift */; };
 		6E670BF82BAF9893000E9C84 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6E670BF72BAF9893000E9C84 /* GoogleService-Info.plist */; };
 		6E8A895D2BAF6C520034AFFA /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 6E8A895C2BAF6C520034AFFA /* FirebaseFirestore */; };
 		6E8C69272BAF535B0071AA25 /* myPantryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E8C69262BAF535B0071AA25 /* myPantryApp.swift */; };
@@ -28,6 +29,7 @@
 		02A0F4722BAF7F38005B0E03 /* authVerif.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = authVerif.swift; sourceTree = "<group>"; };
 		02EB27272BAFA17200A3D5B0 /* houseSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = houseSetup.swift; sourceTree = "<group>"; };
 		02EB27292BAFA52200A3D5B0 /* houseCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = houseCode.swift; sourceTree = "<group>"; };
+		02EB272B2BAFB62D00A3D5B0 /* imagePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imagePage.swift; sourceTree = "<group>"; };
 		6E670BF62BAF9146000E9C84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		6E670BF72BAF9893000E9C84 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		6E8A895E2BAF71F70034AFFA /* myPantry.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = myPantry.entitlements; sourceTree = "<group>"; };
@@ -77,6 +79,7 @@
 				6E8C69262BAF535B0071AA25 /* myPantryApp.swift */,
 				6E8C69282BAF535B0071AA25 /* ContentView.swift */,
 				025B0D1E2BAF61BA001F06BA /* homePage.swift */,
+				02EB272B2BAFB62D00A3D5B0 /* imagePage.swift */,
 				02EB27272BAFA17200A3D5B0 /* houseSetup.swift */,
 				025B0D182BAF56A5001F06BA /* loginPage.swift */,
 				02EB27292BAFA52200A3D5B0 /* houseCode.swift */,
@@ -176,6 +179,7 @@
 			files = (
 				6E8C69292BAF535B0071AA25 /* ContentView.swift in Sources */,
 				6E8C69272BAF535B0071AA25 /* myPantryApp.swift in Sources */,
+				02EB272C2BAFB62D00A3D5B0 /* imagePage.swift in Sources */,
 				02EB272A2BAFA52200A3D5B0 /* houseCode.swift in Sources */,
 				02EB27282BAFA17200A3D5B0 /* houseSetup.swift in Sources */,
 				02A0F4732BAF7F38005B0E03 /* authVerif.swift in Sources */,
