@@ -144,7 +144,7 @@ struct homePage: View {
 
                 
             
-                Spacer()
+                //Spacer()
                 if navigateToCameraView {
                     NavigationLink(destination: CameraView(), isActive: $navigateToCameraView) {
                         CameraView()
