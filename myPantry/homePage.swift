@@ -6,8 +6,20 @@ import FirebaseFirestore
 struct homePage: View {
     @State private var navigateToCameraView = false
     @State private var navigateToRecipes = false
-    @State private var ingredient = ""
-    @State private var expireDate = ""
+    @State private var ingredients = ""
+    @State private var primaryIngredient = ""
+    @State private var expirationData = ""
+    
+    
+    
+    
+    let houseCode = "123456"
+    
+    
+    func parseIngredients(){
+        
+        
+    }
     
     func goToCameraView() {
         self.navigateToCameraView = true
@@ -29,8 +41,11 @@ struct homePage: View {
                 let document = try await docRef.getDocument()
                 if document.exists {
                     let data = document.data().map(String.init(describing:)) ?? "nil"
-                    ingredient = data
-                    print(ingredient)
+                    ingredients = data
+                    parseIngredients()
+                    print(primaryIngredient)
+                    print(expirationData)
+                    print("yo")
                 } else {
                     print("house does not exist (shouldn't happen)")
                 }
@@ -41,7 +56,7 @@ struct homePage: View {
         }
     }
     
-    let houseCode = UserDefaults.standard.string(forKey: "house") ?? "couldn't find any identifier"
+//    let houseCode = UserDefaults.standard.string(forKey: "house") ?? "couldn't find any identifier"
     
     var body: some View {
         NavigationView {
@@ -83,6 +98,9 @@ struct homePage: View {
                     }
                 }
             }
+        }
+        .onAppear{
+            getIngredients()
         }
     }
 }
