@@ -13,7 +13,7 @@ struct houseSetup: View {
         if code.isEmpty{
             print("Creating new house")
             
-            let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+            let letters = "abcdefghijkmnopqrstuvwxyzABCDEFGHJKLMNOPQRSTUVWXYZ0123456789"
             let newCode = String((0..<6).map{ _ in letters.randomElement()! })
             do{
                 //FirebaseApp.configure()
@@ -77,7 +77,7 @@ struct houseSetup: View {
             .padding()
             .navigationDestination(isPresented: $shouldNavigate){
                 //homePage()
-                ContentView()
+                CameraView()
             }
             .navigationDestination(isPresented: $shouldNavigate2){
                 houseCode()

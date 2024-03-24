@@ -35,7 +35,7 @@ struct homePage: View {
                 }
                 .padding()
                 Spacer()
-                NavigationLink(destination: imagePage(), isActive: $shouldNavigate) {
+                NavigationLink(destination: CameraView(), isActive: $shouldNavigate) {
                     EmptyView()
                 }
             }
