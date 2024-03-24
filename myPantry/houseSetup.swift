@@ -7,25 +7,29 @@ struct houseSetup: View {
     @State private var identifier = ""
     @State private var houseName = ""
     @State private var shouldNavigate = false
+    @State private var shouldNavigate2 = false
     
     func houseSetup(code: String) async -> Bool{
         if code.isEmpty{
-            self.shouldNavigate = true
+            print("Creating new house")
+            
             let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
             let newCode = String((0..<6).map{ _ in letters.randomElement()! })
             do{
-                FirebaseApp.configure()
+                //FirebaseApp.configure()
                 let db = Firestore.firestore()
                 try await db.collection("house").document(newCode).setData([:])
                 UserDefaults.standard.set(newCode, forKey: "house")
             } catch { print("Error creating house") }
+            self.shouldNavigate2 = true
             return false
         }
         else{
-            self.shouldNavigate = true
+            print("Checking house code")
+            
             do{
                 //return true
-                FirebaseApp.configure()
+                //FirebaseApp.configure()
                 let db = Firestore.firestore()
                 let docRef = db.collection("house").document(code)
                 let document = try await docRef.getDocument()
@@ -34,9 +38,9 @@ struct houseSetup: View {
                 } else { print("House does not exist") }
                 
             } catch { print("Error finding house") }
+            self.shouldNavigate = true
             return true
         }
-        return false
     }
     
     var body: some View {
@@ -58,18 +62,8 @@ struct houseSetup: View {
                 Button(action:{
                     Task{
                         let hasHouse = await houseSetup(code: identifier)
-                        
-                        if(hasHouse){
-                            NavigationLink(destination: homePage(), isActive: $shouldNavigate) {
-                                homePage()
-                            }
+                        print("returned from houseSetup, hasHouse = " + String(hasHouse))
                         }
-                        else{
-                            NavigationLink(destination: homePage(), isActive: $shouldNavigate) {
-                                houseCode()
-                            }
-                            
-                        }}
                     }) {
                     Text("Join/Create")
                         .font(.headline)
@@ -81,6 +75,12 @@ struct houseSetup: View {
                 }
             }
             .padding()
+            .navigationDestination(isPresented: $shouldNavigate){
+                homePage()
+            }
+            .navigationDestination(isPresented: $shouldNavigate2){
+                houseCode()
+            }
             
         }
     }
