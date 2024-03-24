@@ -51,6 +51,11 @@ struct houseSetup: View {
                     .font(.largeTitle)
                     .fontWeight(.bold)
                     .padding(.bottom, 20)
+                Image("home/home1")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(height: 200)
+                    .padding(.bottom, 20)
                     
                 
                 TextField("Leave blank to create", text: $identifier)

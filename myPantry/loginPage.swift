@@ -57,6 +57,11 @@ struct LoginPage: View {
                     .font(.largeTitle)
                     .fontWeight(.bold)
                     .padding(.bottom, 20)
+                Image("pantry/pantry1")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(height: 200)
+                    .padding(.bottom, 20)
 
                 TextField("Name", text: $name)
                     .padding()
