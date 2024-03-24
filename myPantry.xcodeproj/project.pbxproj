@@ -22,6 +22,7 @@
 		6E8C69392BAF559E0071AA25 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 6E8C69382BAF559E0071AA25 /* FirebaseAnalytics */; };
 		6E8C693B2BAF559E0071AA25 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 6E8C693A2BAF559E0071AA25 /* FirebaseAuth */; };
 		6ECBF3612BAFFBC800F38E2E /* OpenAIKit in Frameworks */ = {isa = PBXBuildFile; productRef = 6ECBF3602BAFFBC800F38E2E /* OpenAIKit */; };
+		6ECBF3642BB0047D00F38E2E /* GoogleGenerativeAI in Frameworks */ = {isa = PBXBuildFile; productRef = 6ECBF3632BB0047D00F38E2E /* GoogleGenerativeAI */; };
 		6EF3131D2BAFE718004A82D4 /* CachedImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF3130E2BAFE718004A82D4 /* CachedImageManager.swift */; };
 		6EF3131E2BAFE718004A82D4 /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF3130F2BAFE718004A82D4 /* Camera.swift */; };
 		6EF3131F2BAFE718004A82D4 /* CameraApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF313102BAFE718004A82D4 /* CameraApp.swift */; };
@@ -78,6 +79,7 @@
 				6EF5AD1C2BAFF35D00DFFF46 /* OpenAISwift in Frameworks */,
 				6E8C69392BAF559E0071AA25 /* FirebaseAnalytics in Frameworks */,
 				6ECBF3612BAFFBC800F38E2E /* OpenAIKit in Frameworks */,
+				6ECBF3642BB0047D00F38E2E /* GoogleGenerativeAI in Frameworks */,
 				6E8C693B2BAF559E0071AA25 /* FirebaseAuth in Frameworks */,
 				6E8A895D2BAF6C520034AFFA /* FirebaseFirestore in Frameworks */,
 			);
@@ -174,6 +176,7 @@
 				6E8A895C2BAF6C520034AFFA /* FirebaseFirestore */,
 				6EF5AD1B2BAFF35D00DFFF46 /* OpenAISwift */,
 				6ECBF3602BAFFBC800F38E2E /* OpenAIKit */,
+				6ECBF3632BB0047D00F38E2E /* GoogleGenerativeAI */,
 			);
 			productName = myPantry;
 			productReference = 6E8C69232BAF535B0071AA25 /* myPantry.app */;
@@ -207,6 +210,7 @@
 				6E8C69372BAF559E0071AA25 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				6EF5AD1A2BAFF35D00DFFF46 /* XCRemoteSwiftPackageReference "OpenAISwift" */,
 				6ECBF35F2BAFFBC700F38E2E /* XCRemoteSwiftPackageReference "openai-kit" */,
+				6ECBF3622BB0047D00F38E2E /* XCRemoteSwiftPackageReference "generative-ai-swift" */,
 			);
 			productRefGroup = 6E8C69242BAF535B0071AA25 /* Products */;
 			projectDirPath = "";
@@ -494,6 +498,14 @@
 				minimumVersion = 1.8.2;
 			};
 		};
+		6ECBF3622BB0047D00F38E2E /* XCRemoteSwiftPackageReference "generative-ai-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/generative-ai-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.4.8;
+			};
+		};
 		6EF5AD1A2BAFF35D00DFFF46 /* XCRemoteSwiftPackageReference "OpenAISwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/adamrushy/OpenAISwift.git";
@@ -524,6 +536,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 6ECBF35F2BAFFBC700F38E2E /* XCRemoteSwiftPackageReference "openai-kit" */;
 			productName = OpenAIKit;
+		};
+		6ECBF3632BB0047D00F38E2E /* GoogleGenerativeAI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6ECBF3622BB0047D00F38E2E /* XCRemoteSwiftPackageReference "generative-ai-swift" */;
+			productName = GoogleGenerativeAI;
 		};
 		6EF5AD1B2BAFF35D00DFFF46 /* OpenAISwift */ = {
 			isa = XCSwiftPackageProductDependency;

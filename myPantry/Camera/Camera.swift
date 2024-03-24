@@ -8,6 +8,7 @@ import UIKit
 import os.log
 import VisionKit
 import Vision
+import OpenAIKit
 
 class Camera: NSObject {
     private let captureSession = AVCaptureSession()
