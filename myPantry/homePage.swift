@@ -13,16 +13,7 @@ struct homePage: View {
     @State private var primaryIngredient: [String] = []
     @State private var expirationDate: [String] = []
     @State private var didAlreadyAppear = false
-    @State private var expiresIn = []
-    
-    
-    
-    func formatDates(){
-        
-    }
-    func expiresInXDays(){
-        let date = Date()
-    }
+
     
     
     
@@ -69,7 +60,7 @@ struct homePage: View {
         Task {
             do {
                 print("StartinggetIngredients...")
-                //FirebaseApp.configure()
+                FirebaseApp.configure()
                 let db = Firestore.firestore()
                 
                 let docRef = db.collection("house").document(houseCode)
@@ -152,8 +143,7 @@ struct homePage: View {
 
 
                 
-                Spacer()
-                .padding()
+            
                 Spacer()
                 if navigateToCameraView {
                     NavigationLink(destination: CameraView(), isActive: $navigateToCameraView) {
