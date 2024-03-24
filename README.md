@@ -30,8 +30,9 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/github_username/repo_name">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+  <a href="https://github.com/paris-phan/myPantry">
+    <img src="myPantry/Assets.xcassets/AppIcon.appiconset
+/DALL·E 2024-03-24 04.26.42 - Design a modern, minimalist app widget icon that represents a pantry. The icon should encapsulate the concept of a smart, organized pantry management .jpeg" alt="Logo" width="80" height="80">
   </a>
 
 <h3 align="center">project_title</h3>
